@@ -13,9 +13,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
 
   <style>
-    /* ============================================================ */
+
     /* ESTRUCTURA GLOBAL Y CONTROL DE VISTAS ÚNICAS                 */
-    /* ============================================================ */
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     
     body {
@@ -55,9 +55,9 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ============================================================ */
+
     /* ESTILOS SECCIÓN: Inicio_pestaña                              */
-    /* ============================================================ */
+
     #view-inicio {
       --bg:     #0D0F14;
       --card:   #161A23;
@@ -102,9 +102,9 @@
     #view-inicio .btn-outline { background: transparent; border: 1.5px solid var(--gold); color: var(--gold); }
     #view-inicio .footer { color: var(--muted); font-size: 11px; margin-top: 20px; text-align: center; }
 
-    /* ============================================================ */
+
     /* ESTILOS SECCIÓN: cliente                                     */
-    /* ============================================================ */
+
     #view-cliente {
       --bg-from: #7a611e;
       --bg-mid:  #d3c086;
@@ -161,9 +161,9 @@
       padding: 12px 20px; cursor: pointer; display: block; margin: 30px auto 0; font-weight: bold; width: 100%; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;
     }
 
-    /* ============================================================ */
+
     /* ESTILOS SECCIÓN: inicio_admin                                */
-    /* ============================================================ */
+
     #view-admin {
       --bg:        #bba362;
       --surface:   #d3c086;
@@ -204,9 +204,7 @@
     }
     #view-admin .btn-back:hover { background: rgba(0,0,0,0.05); }
 
-    /* ============================================================ */
     /* ESTILOS SECCIÓN: pin_login                                   */
-    /* ============================================================ */
     #view-pin {
       --bg:           #0A0A0F;
       --surface:      #13131A;
@@ -264,9 +262,9 @@
       align-items: center; justify-content: center; font-size: 36px; color: var(--success);
     }
 
-    /* ============================================================ */
+
     /* ESTILOS SECCIÓN: pestaña_editar_prod                         */
-    /* ============================================================ */
+
     #view-editar {
       --bg:        #0c0c10;
       --surface:   #16161e;
@@ -386,7 +384,7 @@
           <div class="badge" id="badge-2"><span class="badge-text">✅ Más barato</span></div>
         </div>
         <div class="card-prod" id="card-3">
-          <div class="card-header"><span class="card-name">La Comer / T4</span></div>
+          <div class="card-header"><span class="card-name">Tienda 4</span></div>
           <div class="card-price empty" id="price-3">—</div>
           <div class="badge" id="badge-3"><span class="badge-text">✅ Más barato</span></div>
         </div>
@@ -415,7 +413,7 @@
           Micelanea la pasadita <span>→</span>
         </button>
         <button class="btn-store" onclick="goToPin('T4', '2180')">
-          T4 <span>→</span>
+          Tienda 4<span>→</span>
         </button>
       </div>
       <div class="divider"></div>
@@ -514,12 +512,15 @@
 
     // ── LÓGICA DE LA SECCIÓN: cliente ──
     const PRODUCTOS_CLIENTE = {
-      "manzana":  [18.50, 22.00, 15.99, 21.50],
-      "leche":    [24.00, 22.50, 26.00, 23.00],
+      "huevo":  [48.00, 52.00, 42.00, 70.00],
+      "leche":    [28.00, 31.00, 22.50, 45.00],
       "pan":      [35.00, 31.50, 38.00, 30.00],
       "arroz":    [42.00, 39.50, 45.00, 40.00],
       "refresco": [19.00, 21.00, 18.50, 22.00],
-      "cafe":     [89.00, 95.00, 82.00, 91.00]
+      "cafe":     [89.00, 95.00, 82.00, 91.00],
+      "aceite vegetal":     [40.00, 45.00, 36.50, 49.00],
+      "azucar":     [30.00, 34.00, 26.50, 40.00],
+      "papel higienico":     [32.00, 36.00, 26.50, 27.00]
     };
 
     function normalize(str) { return str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ñ/g, "n"); }
@@ -626,10 +627,14 @@
     // ── LÓGICA DE LA SECCIÓN: pestaña_editar_prod ──
     let INVENTARIO_ADMIN = [
       { nombre: "Arroz 1kg", precio: 22.50 },
-      { nombre: "Frijol negro 500g", precio: 18.00 },
-      { nombre: "Leche entera 1L", precio: 24.50 },
-      { nombre: "Harina de trigo 1kg", precio: 15.00 },
-      { nombre: "Azúcar morena 1kg", precio: 28.00 }
+      { nombre: "Papel higienico", precio: 32.00 },
+      { nombre: "Leche 1L", precio: 24.50 },
+      { nombre: "Cafe 1kg", precio: 90.00 },
+      { nombre: "Huevo 1kg", precio: 28.00 },
+      { nombre: "Pan ", precio: 28.00 },
+      { nombre: "Refresco 1L", precio: 19.00 },
+      { nombre: "Aceite vegetal 1L", precio: 36.00 },
+      { nombre: "Azúcar 1kg", precio: 26.50 }
     ];
 
     let editandoIndex = null;
